@@ -4,11 +4,10 @@ from flask import request, json, Blueprint
 
 import handler
 
-kamasutra = Blueprint('kamasutra', __name__, url_prefix='/vk')
+kamasutra = Blueprint('kamasutra', __name__, url_prefix='/kamasutra')
 
 
-# @kamasutra.route('/kamasutra/callback/vk')
-@kamasutra.route('/callback', methods=["POST"])
+@kamasutra.route('/callback/vk', methods=["POST"])
 def processing():
     data = json.loads(request.data)
 
