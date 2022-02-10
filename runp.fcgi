@@ -1,3 +1,6 @@
+#!env/bin/python3
+# -*- coding: utf-8 -*-
+
 import site
 import sys
 
