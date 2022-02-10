@@ -4,7 +4,7 @@ from flask import request, json, Blueprint, render_template
 
 import handler
 
-kamasutra = Blueprint('kamasutra', __name__, url_prefix='/kamasutra')
+kamasutra = Blueprint('kamasutra', __name__, url_prefix='/')
 
 
 @kamasutra.route('/')
