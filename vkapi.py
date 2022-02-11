@@ -23,7 +23,6 @@ def send_message(peer_id, message: Message):
 def get_upload_server_url():
     upload_server = api.photos.getMessagesUploadServer(group_id=os.environ.get("GROUP_ID"),
                                                        access_token=access_token)
-    print(upload_server)
     return upload_server['upload_url']
 
 
