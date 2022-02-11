@@ -7,11 +7,6 @@ import handler
 kamasutra = Blueprint('kamasutra', __name__, url_prefix='/')
 
 
-@kamasutra.route('/')
-def test_index():
-    return render_template('index.html')
-
-
 @kamasutra.route('/callback/vk', methods=["POST"])
 def processing():
     data = json.loads(request.data)

@@ -20,12 +20,19 @@ def send_message(peer_id, message: Message):
                       **message.get_message_dict())
 
 
-def upload_photo(photo):
-    upload_data = api.photos.getMessagesUploadServer(group_id=os.environ.get("GROUP_ID"),
-                                                     access_token=access_token)
-    upload_url = upload_data.get('upload_url')
+def get_upload_server_url():
+    return api.photos.getMessagesUploadServer(group_id=os.environ.get("GROUP_ID"),
+                                              access_token=access_token)
+
+
+def get_photo_data(upload_url, photo):
     r = requests.post(url=upload_url, files={'photo': ('kamasimage.png', photo, 'image/png')})
-    photo_data = r.json()
+    return r.json()
+
+
+def upload_photo(photo):
+    upload_url = get_upload_server_url()
+    photo_data = get_photo_data(upload_url, photo)
     photo = api.photos.saveMessagesPhoto(access_token=access_token,
                                          photo=photo_data.get('photo'),
                                          server=photo_data.get('server'),

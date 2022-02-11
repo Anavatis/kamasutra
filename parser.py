@@ -13,7 +13,6 @@ site = "https://medow.club/pozy"
 class KamasutraParser:
 
     def __init__(self, url):
-        print(url)
         self.page = requests.get(url)
         self.soup = BeautifulSoup(self.page.text, "html.parser")
 
